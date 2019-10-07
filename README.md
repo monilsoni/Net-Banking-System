@@ -9,6 +9,7 @@ The Spring Framework provides a comprehensive programming and configuration mode
 
 **Software Development Process**: This project will follow the Agile methodology. The reason for selecting this particular methodology is that only core requirements and details about the project are known. However, since all the technology that is going to be used is new to the developers, the details of coding are uncertain. To get introduced to the Agile methodology [click here](https://angel.co/blog/agile-methodology-a-primer-on-moving-fast).
 
+**Implementation**: [This](Netbanking_Implementation.pdf) is an in-progress document like an SRS but has no particular structure defined as of now. This will change in later revisions. 
 
 ## Creators
 [Monil Soni](https://github.com/monilSoni)  
