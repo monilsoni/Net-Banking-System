@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class DemoController {
+public class MainController {
 
 	@GetMapping("/")
 	public String showHome() {
@@ -13,7 +13,6 @@ public class DemoController {
 	}
 	
 	// add request mapping for /leaders
-
 	@GetMapping("/leaders")
 	public String showLeaders() {
 		
@@ -21,7 +20,6 @@ public class DemoController {
 	}
 	
 	// add request mapping for /systems
-	
 	@GetMapping("/systems")
 	public String showSystems() {
 		

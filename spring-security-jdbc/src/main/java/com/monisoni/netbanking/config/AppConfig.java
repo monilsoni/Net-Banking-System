@@ -21,7 +21,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.monisoni.netbanking")
 @PropertySource("classpath:persistence-mysql.properties")
-public class DemoAppConfig {
+public class AppConfig {
 
 	// set up variable to hold the properties
 	@Autowired
@@ -39,7 +39,7 @@ public class DemoAppConfig {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
-
+	
 	// define a bean for our security datasource
 	
 	@Bean
