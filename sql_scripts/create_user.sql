@@ -1,3 +1,5 @@
+
+
 SHOW VARIABLES LIKE 'validate_password%';
 
 SET GLOBAL validate_password_length = 10;

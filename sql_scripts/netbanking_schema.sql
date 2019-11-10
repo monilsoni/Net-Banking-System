@@ -1,3 +1,5 @@
+drop DATABASE IF EXISTS `netbanking`;
+
 CREATE DATABASE  IF NOT EXISTS `netbanking`;
 USE `netbanking`;
 
@@ -42,7 +44,7 @@ create table `transaction`(
 	transaction_id integer not null auto_increment,
     account_no varchar(45) not null,
     details varchar(45),
-    `cr/db` varchar(10),
+    cr_db varchar(10),
     amount integer,
     closing_balance integer,
     date datetime,
@@ -50,13 +52,9 @@ create table `transaction`(
     foreign key(account_no) references account(account_no)
 ) ENGINE=InnoDB auto_increment=1000 DEFAULT  CHARSET=latin1;
 
-drop table if exists `owned by`;
+alter table account add user_id integer;
 
-create table `owned by`(
-	user_id integer not null,
-    account_no varchar(45) not null,
-    primary key(user_id,account_no),
-    foreign key(user_id) references `user`(user_id),
-    foreign key(account_no) references `account`(account_no)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+alter table account add foreign key(user_id) references `user`(user_id);
+
+alter table user add password varchar(45);
 
