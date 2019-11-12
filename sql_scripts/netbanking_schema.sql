@@ -1,60 +1,66 @@
-drop DATABASE IF EXISTS `netbanking`;
+DROP DATABASE IF EXISTS `netbanking_test`;
+CREATE DATABASE  IF NOT EXISTS `netbanking_test`;
+USE `netbanking_test`;
 
-CREATE DATABASE  IF NOT EXISTS `netbanking`;
-USE `netbanking`;
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+    `user_id` INTEGER NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(45) NOT NULL UNIQUE,
+    `password` VARCHAR(60) NOT NULL,
+    `name` VARCHAR(45) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `mobile_no` NUMERIC NOT NULL,
+    `address` VARCHAR(100) NOT NULL,
+    `enabled` TINYINT(4) NOT NULL DEFAULT '1',
+    PRIMARY KEY (`user_id`)
+)  ENGINE=INNODB DEFAULT CHARSET=LATIN1;
 
-drop table if exists `user`;
+DROP TABLE IF EXISTS `user_roles`;
+CREATE TABLE `user_roles` (
+    `user_role_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `user_id` INT(11) NOT NULL,
+    `role` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`user_role_id`),
+    UNIQUE KEY `uni_userid_role` (`role` , `user_id`),
+    KEY `fk_user_idx` (`user_id`),
+    CONSTRAINT `fk_userid` FOREIGN KEY (`user_id`)
+        REFERENCES `user` (`user_id`)
+)  ENGINE=INNODB DEFAULT CHARSET=LATIN1;
 
-create table `user`(
-	user_id integer not null auto_increment,
-    user_name varchar(45) default null,
-    email varchar(45) default null,
-    mobile_no numeric default 0,
-    address varchar(100) default null,
-    primary key(user_id)
-) ENGINE=InnoDB auto_increment=1000 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `bank`;
+CREATE TABLE `bank` (
+    `IFSC` VARCHAR(45) NOT NULL,
+    `bank_name` VARCHAR(45) DEFAULT NULL,
+    `state` VARCHAR(45) DEFAULT NULL,
+    `city` VARCHAR(45) DEFAULT NULL,
+    `area` VARCHAR(45) DEFAULT NULL,
+    PRIMARY KEY (`IFSC`)
+)  ENGINE=INNODB DEFAULT CHARSET=LATIN1;
 
-drop table if exists `bank`;
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE `account` (
+    `account_no` VARCHAR(45) NOT NULL,
+    `user_id` INTEGER NOT NULL,
+    `open_date` DATE DEFAULT NULL,
+    `IFSC` VARCHAR(45),
+    `type` VARCHAR(45),
+    `balance` INTEGER,
+    `currency` VARCHAR(45),
+    PRIMARY KEY (`account_no`),
+    FOREIGN KEY (`IFSC`) REFERENCES `bank` (`IFSC`),
+    FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`)
+)  ENGINE=INNODB DEFAULT CHARSET=LATIN1;
 
-create table `bank`(
-	IFSC varchar(45) not null,
-    bank_name varchar(45) default null,
-    state varchar(45) default null,
-    city varchar(45) default null,
-    area varchar(45) default null,
-    primary key(IFSC)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-drop table if exists `account`;
-
-create table `account`(
-	account_no varchar(45) not null,
-    open_date date default null,
-    IFSC varchar(45),
-    `type` varchar(45),
-    balance integer,
-    currency varchar(45),
-    primary key(account_no),
-    foreign key(IFSC) references bank(IFSC)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-drop table if exists `transaction`;
-
-create table `transaction`(
-	transaction_id integer not null auto_increment,
-    account_no varchar(45) not null,
-    details varchar(45),
-    cr_db varchar(10),
-    amount integer,
-    closing_balance integer,
-    date datetime,
-    primary key(transaction_id),
-    foreign key(account_no) references account(account_no)
-) ENGINE=InnoDB auto_increment=1000 DEFAULT  CHARSET=latin1;
-
-alter table account add user_id integer;
-
-alter table account add foreign key(user_id) references `user`(user_id);
-
-alter table user add password varchar(45);
-
+DROP TABLE IF EXISTS `transaction`;
+CREATE TABLE `transaction` (
+    `transaction_id` INTEGER NOT NULL AUTO_INCREMENT,
+    `account_no` VARCHAR(45) NOT NULL,
+    `details` VARCHAR(45),
+    `cr_db` VARCHAR(10),
+    `amount` INTEGER,
+    `closing_balance` INTEGER,
+    date DATETIME,
+    PRIMARY KEY (`transaction_id`),
+    FOREIGN KEY (`account_no`)
+        REFERENCES account (`account_no`)
+)  ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=LATIN1;

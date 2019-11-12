@@ -1,0 +1,46 @@
+.login {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 5em;
+    background-color: #f2f3f4;
+    width: min-content;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#login-form {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-items {
+    margin: 10px;
+}
+
+::placeholder{
+    font-family: 'Questrial', sans-serif;
+}
+
+#submit {
+    padding: 0.5em;
+    color: white;
+    background-color: #ff205a;
+    border-radius: 5px;
+    font-family: 'Questrial', sans-serif;
+}
+
+#submit:hover {
+    animation-name: submit-hover;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes submit-hover {
+    100% {
+        transform: scale(1.1);
+    }
+}
