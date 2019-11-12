@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!doctype html>
 <html lang="en">
@@ -9,8 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="styles/main-style.css">
-<link rel="stylesheet" type="text/css" href="styles/dashboard-style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main-style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/dashboard-style.css">
 </head>
 
 <body>
@@ -28,11 +29,10 @@
 			<!-- get username from spring security -->
 			<h3 class="welcome-message">Welcome ${username }</h3>
 			
-			<!-- Add link to go back to home page -->
-			<!-- <a href="${pageContext.request.contextPath}/">Back to Home Page</a> -->
-			
-			<a class="logout-link" href="${pageContext.request.contextPath }/logout">Logout</a>
-			
+			<form:form action="${pageContext.request.contextPath}/logout"  method="POST">
+				<input type="submit" value="Logout" />
+			</form:form>
+					
 		</div>
 		<div class="account-details">
 			<h3>Dashboard</h3>

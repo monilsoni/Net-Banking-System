@@ -8,7 +8,7 @@
 	<version>1.0</version>
 	<packaging>war</packaging>
 
-	<name>spring-security-jdbc</name>
+	<name>sNetbanking-Application</name>
 
 	<properties>
 		<springframework.version>5.2.0.RELEASE</springframework.version>

@@ -10,8 +10,6 @@
 	</authentication-manager>
 
 	<http use-expressions="true">
-		<intercept-url pattern="/leaders/**" access="hasRole('MANAGER')"/>
-		<intercept-url pattern="/systems/**" access="hasRole('ADMIN')"/>
 		<intercept-url pattern="/" access="hasRole('USER')"/>
 
 		<form-login login-page="/showMyLoginPage"

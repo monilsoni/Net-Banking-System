@@ -6,6 +6,12 @@ VALUES
 ( "201601049", "{noop}201601049", "Monil Soni", "monilsoni99@gmail.com", 9925103799, "Shahibaug;Ahemdabad"),
 ( "201601127", "{noop}201601127", "Swapnil Jethwa", "swapniljethwa@gmail.com", 9409156633, "Ellora park;Vadodara");
 
+INSERT INTO `user_roles` (`user_id`, `role`)
+VALUES
+(1, "ROLE_USER"),
+(2, "ROLE_USER"),
+(3, "ROLE_USER");
+
 INSERT INTO `bank` (`IFSC`, `bank_name`, `area`, `city`, `state`)
 VALUES 
 ( "HDFC0000147", "HDFC Bank", "Karelibaug", "Vadodara", "Gujarat"),

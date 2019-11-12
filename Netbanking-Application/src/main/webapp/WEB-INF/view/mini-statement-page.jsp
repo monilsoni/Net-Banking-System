@@ -1,5 +1,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!doctype html>
 <html lang="en">
@@ -9,9 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="styles/main-style.css">
-<link rel="stylesheet" type="text/css"
-	href="styles/mini-statement-style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main-style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/mini-statement-style.css">
 </head>
 
 <body>
@@ -26,7 +26,9 @@
 	<div class="main">
 		<div class="navigation-bar">
 			<h3 class="welcome-message">Welcome ${username }</h3>
-			<a class="logout-link" href="#">Logout</a>
+			<form:form action="${pageContext.request.contextPath}/logout"  method="POST">
+				<input type="submit" value="Logout" />
+			</form:form>		
 		</div>
 		<div class="mini-statement">
 			<h3>

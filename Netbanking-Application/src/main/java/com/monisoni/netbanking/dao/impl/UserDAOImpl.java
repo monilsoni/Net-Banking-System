@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO {
 		Session session = sessionFactory.getCurrentSession();
 
 		@SuppressWarnings("unchecked")
-		Query<User> query = session.createQuery("from User where userName = :username ");
+		Query<User> query = session.createQuery("from User where username = :username ");
 		query.setParameter("username", username);
 		User user = (User) query.uniqueResult();
 

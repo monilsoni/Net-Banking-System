@@ -27,7 +27,7 @@ public class UserRolesDAOImpl implements UserRolesDAO {
 		Session session = sessionFactory.getCurrentSession();
 
 		@SuppressWarnings("unchecked")
-		Query<UserRoles> query = session.createQuery("from UserRoles where userid = :id ");
+		Query<UserRoles> query = session.createQuery("from UserRoles where userId = :id ");
 		query.setParameter("id", userId);
 		List<UserRoles> list = (List<UserRoles>) query.list();
 		List<String> roles = new ArrayList<String>();

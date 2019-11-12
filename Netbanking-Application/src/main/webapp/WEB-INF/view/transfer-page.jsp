@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!doctype html>
@@ -8,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/main-style.css">
-    <link rel="stylesheet" type="text/css" href="styles/transfer-style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/transfer-style.css">
 
 </head>
 
@@ -25,11 +26,13 @@
     <div class="main">
         <div class="navigation-bar">
             <h3 class="welcome-message">Welcome ${username }</h3>
-            <a class="logout-link" href="#">Logout</a>
-        </div>
+			<form:form action="${pageContext.request.contextPath}/logout"  method="POST">
+				<input type="submit" value="Logout" />
+			</form:form>
+		</div>
         <div class="transfer-money">
             <h3>Transfer Money</h3>
-            <form method="post" action="${pageContext.request.contextPath }/transaction">
+            <form:form method="post" action="${pageContext.request.contextPath }/transaction">
             	<!-- remove this table if you can -->
             
                 <table>
@@ -52,10 +55,10 @@
                         <td><input id="submit" type="submit" value="Transfer"></td>
                     </tr>
                 </table>
-                
+                              
                 ${error }
                 
-            </form>
+            </form:form>
         </div>
     </div>
 
