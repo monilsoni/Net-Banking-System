@@ -34,7 +34,7 @@
 					<div>
 						<!-- Check for login error -->
 						<c:if test="${param.error != null}">
-							<div class="alert alert-danger">Invalid username and
+							<div class="alert alert-danger">Invalid username or
 								password.</div>
 						</c:if>
 
