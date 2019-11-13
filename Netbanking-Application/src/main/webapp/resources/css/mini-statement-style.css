@@ -1,0 +1,20 @@
+.mini-statement {
+    margin: 15px;
+}
+
+/* Table formatting */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3bb1a1;
+}

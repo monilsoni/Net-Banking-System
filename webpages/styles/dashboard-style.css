@@ -50,7 +50,7 @@ th {
     background-color: #3bb1a1;
 }
   
-.transfer-links:hover {
+.transfer-link:hover {
     animation-name: submit-hover;
     animation-duration: 300ms;
     animation-fill-mode: forwards;

@@ -24,23 +24,3 @@
 ::placeholder{
     font-family: 'Questrial', sans-serif;
 }
-
-#submit {
-    padding: 0.5em;
-    color: white;
-    background-color: #ff205a;
-    border-radius: 5px;
-    font-family: 'Questrial', sans-serif;
-}
-
-#submit:hover {
-    animation-name: submit-hover;
-    animation-duration: 300ms;
-    animation-fill-mode: forwards;
-}
-
-@keyframes submit-hover {
-    100% {
-        transform: scale(1.1);
-    }
-}

@@ -30,7 +30,7 @@
 			<h3 class="welcome-message">Welcome ${username }</h3>
 			
 			<form:form action="${pageContext.request.contextPath}/logout"  method="POST">
-				<input type="submit" value="Logout" />
+				<input class="logout-link" type="submit" value="Logout" />
 			</form:form>
 					
 		</div>

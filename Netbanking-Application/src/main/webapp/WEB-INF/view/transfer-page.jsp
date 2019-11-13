@@ -33,6 +33,7 @@
         <div class="transfer-money">
             <h3>Transfer Money</h3>
             <form:form method="post" action="${pageContext.request.contextPath }/transaction">
+           
             	<!-- remove this table if you can -->
             
                 <table>
