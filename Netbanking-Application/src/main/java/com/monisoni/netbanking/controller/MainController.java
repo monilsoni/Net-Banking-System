@@ -3,8 +3,6 @@ package com.monisoni.netbanking.controller;
 import java.security.Principal;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 
 import com.monisoni.netbanking.dao.UserAccountDetailsDAO;
 import com.monisoni.netbanking.dao.UserDAO;
@@ -87,20 +84,15 @@ public class MainController {
 	
 	@RequestMapping(value = "/miniStatement")
 	public String miniStatement(@RequestParam("accountNo") String accountNo,
-								Authentication authentication,
 								Model theModel){
 		
 		BasicConfigurator.configure();
-		if(authentication==null) {
-			return "redirect:/test";
-		}
-		
 		
 		List<Transaction> result = transactionService.generateMiniStatement(accountNo);
 		
 		theModel.addAttribute("transactionList", result);
 		theModel.addAttribute("accountNo", accountNo);
-		return "miniStatement";
+		return "mini-statement-page";
 									
 	}
 

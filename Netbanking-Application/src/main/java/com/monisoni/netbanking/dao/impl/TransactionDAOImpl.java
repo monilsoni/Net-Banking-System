@@ -3,7 +3,6 @@ package com.monisoni.netbanking.dao.impl;
 import java.sql.Date;
 import java.util.List;
 
-import org.apache.log4j.BasicConfigurator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

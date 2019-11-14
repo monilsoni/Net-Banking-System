@@ -44,6 +44,7 @@
 					<th>Current balance</th>
 					<th>Currency</th>
 					<th>Transfer</th>
+					<th>Mini Statement</th>
 				</tr>
 
 				<c:forEach var="accountList" items="${accountList}">
@@ -52,6 +53,11 @@
 						<c:param name="accountNo" value="${accountList.accountNo}">
 						</c:param>
 					</c:url>
+					
+					<c:url var="miniStatementLink" value="/miniStatement">
+				 		<c:param name="accountNo" value="${accountList.accountNo}">
+				 		</c:param>
+				 	</c:url>
 
 					<tr>
 						<td>${accountList.accountNo}</td>
@@ -60,6 +66,7 @@
 						<td>${accountList.balance}</td>
 						<td>${accountList.currency}</td>
 						<td class="transfer-link"><a href="${transferLink}">Proceed</a></td>
+						<td class="transfer-link"><a href="${miniStatementLink}">Fetch</a></td>
 					</tr>
 
 				</c:forEach>
