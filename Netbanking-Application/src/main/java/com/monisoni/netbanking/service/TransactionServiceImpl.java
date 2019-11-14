@@ -1,12 +1,15 @@
 package com.monisoni.netbanking.service;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.monisoni.netbanking.dao.AccountDAO;
 import com.monisoni.netbanking.dao.TransactionDAO;
+import com.monisoni.netbanking.entity.Transaction;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -55,6 +58,14 @@ public class TransactionServiceImpl implements TransactionService {
 		accountDAO.updateAccount(from, currentBalanceFrom - transferAmount);
 
 		return 0;
+	}
+	
+	@Override
+	public List<Transaction> generateMiniStatement(String accountNo) {
+		
+		return transactionDAO.getMiniStatement(accountNo);
+		
+		
 	}
 
 }
