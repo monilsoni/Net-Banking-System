@@ -57,7 +57,7 @@
                     </tr>
                 </table>
                               
-                ${error }
+                <font color="red">${error }</font>
                 
             </form:form>
         </div>

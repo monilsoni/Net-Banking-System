@@ -66,9 +66,14 @@ public class MainController {
 		BasicConfigurator.configure();
 		logger.debug(">>> Value here: " + from);
 		
-		transactionService.performTransaction(from, to, transferAmount, details);
+		int error_check = transactionService.performTransaction(from, to, transferAmount, details);
+		
+		String error = "";
+		
+		if(error_check == -1) error = "Insufficient Balance";
+		else if(error_check == -2) error = "Invalid Account No.";
 
-		return "redirect:/";
+		return error_check == 0? "redirect:/" : "/transfer";
 
 	}
 
