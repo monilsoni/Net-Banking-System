@@ -1,6 +1,7 @@
 package com.monisoni.netbanking.dao.impl;
 
-import java.sql.Date;
+
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -21,7 +22,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	@Transactional
-	public void addTransaction(String from, String to, String amount, String details, Date date,
+	public void addTransaction(String from, String to, String amount, String details, Timestamp date,
 								long currentBalanceFrom, long currentBalanceTo) {
 		
 		Session session = sessionFactory.getCurrentSession();

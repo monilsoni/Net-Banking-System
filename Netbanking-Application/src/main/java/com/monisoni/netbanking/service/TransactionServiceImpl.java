@@ -1,6 +1,7 @@
 package com.monisoni.netbanking.service;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class TransactionServiceImpl implements TransactionService {
 
 		java.util.Date utilDate = new java.util.Date();
 
-		Date date = new Date(utilDate.getTime());
+		Timestamp date = new Timestamp(utilDate.getTime());
 
 		transactionDAO.addTransaction(from, to, amount, details, date, currentBalanceFrom, currentBalanceTo);
 
