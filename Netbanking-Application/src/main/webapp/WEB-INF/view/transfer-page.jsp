@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
 <html lang="en">
@@ -31,7 +32,7 @@
 			</form:form>
 		</div>
         <div class="transfer-money">
-            <h3>Transfer Money</h3>
+            <h3>Transfer Money from ${account_no}</h3>
             <form:form method="post" action="${pageContext.request.contextPath }/transaction">
            
             	<!-- remove this table if you can -->
@@ -56,8 +57,8 @@
                         <td><input id="submit" type="submit" value="Transfer"></td>
                     </tr>
                 </table>
-                              
-                <font color="red">${error }</font>
+                
+                <font color="crimson">${error }</font>
                 
             </form:form>
         </div>

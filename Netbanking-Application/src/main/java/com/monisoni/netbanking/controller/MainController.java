@@ -61,7 +61,8 @@ public class MainController {
 	@RequestMapping(value = "transaction", method = RequestMethod.POST)
 	public String transaction(@RequestParam("accountNoCred") String to, 
 			@RequestParam("amount") String transferAmount,
-			@RequestParam("details") String details) {
+			@RequestParam("details") String details,
+			Model theModel) {
 
 		BasicConfigurator.configure();
 		logger.debug(">>> Value here: " + from);
@@ -73,7 +74,10 @@ public class MainController {
 		if(error_check == -1) error = "Insufficient Balance";
 		else if(error_check == -2) error = "Invalid Account No.";
 
-		return error_check == 0? "redirect:/" : "/transfer";
+		theModel.addAttribute("error", error);
+		theModel.addAttribute("account_no", from);
+		
+		return error_check == 0? "redirect:/" : "/transfer-page";
 
 	}
 
@@ -83,7 +87,8 @@ public class MainController {
 		BasicConfigurator.configure();
 
 		this.from = from;
-
+		theModel.addAttribute("account_no", from);
+		
 		return "transfer-page";
 	}
 	
